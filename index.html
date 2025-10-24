@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reva R Thaara Mitra | Developer & Creative Portfolio</title>
+    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Configure Inter font and Emerald Graphite theme colors --><script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'emerald-primary': '#10B981', // Clean Emerald Green accent
+                        'emerald-secondary': '#059669', // Darker Emerald for accents
+                        'dark-surface': '#1F2937', // Deep Slate Gray for cards
+                        'dark-background': '#000000', // Pure Black Base
+                        'light-text': '#F3F4F6', // Near White text
+                        'muted-text': '#9CA3AF', // Muted Gray for secondary text
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles */
+        html { scroll-behavior: smooth; }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--tw-colors-dark-background);
+            color: var(--tw-colors-light-text);
+            overflow-x: hidden;
+        }
+        .section-padding { padding: 5rem 1rem; }
+        @media (min-width: 640px) { .section-padding { padding: 7rem 2rem; } }
+
+        /* Card hover effect with clean lift and emerald border */
+        .card-hover {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0.75rem;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: var(--tw-colors-emerald-primary);
+        }
+        
+        /* Button styles: Solid, professional gradient button */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--tw-colors-emerald-primary) 0%, var(--tw-colors-emerald-secondary) 100%);
+            color: var(--tw-colors-dark-background); /* Dark text for contrast */
+            padding: 1rem 2.5rem;
+            border-radius: 9999px; 
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--tw-colors-dark-surface);
+            color: var(--tw-colors-emerald-primary);
+            border: 1px solid var(--tw-colors-emerald-primary);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: var(--tw-colors-emerald-primary);
+            color: var(--tw-colors-dark-background);
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="text-light-text">
+
+    <!-- Navbar --><header class="bg-dark-surface sticky top-0 z-50 border-b border-gray-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Navbar Title (Single Initial) --><a href="#" class="text-2xl font-extrabold text-emerald-primary tracking-widest">
+                R
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-muted-text hover:text-emerald-primary transition duration-300 font-medium">About</a>
+                <a href="#skills" class="text-muted-text hover:text-emerald-primary transition duration-300 font-medium">Skills</a>
+                <a href="#projects" class="text-muted-text hover:text-emerald-primary transition duration-300 font-medium">Projects</a>
+                <a href="#contact" class="text-muted-text hover:text-emerald-primary transition duration-300 font-medium">Contact</a>
+            </nav>
+            <button id="menu-button" class="md:hidden text-muted-text hover:text-emerald-primary focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu (Hidden by default) --><div id="mobile-menu" class="hidden md:hidden bg-dark-surface py-2 shadow-inner border-t border-gray-800">
+            <a href="#about" class="block px-4 py-2 text-muted-text hover:bg-gray-800 transition duration-300">About</a>
+            <a href="#skills" class="block px-4 py-2 text-muted-text hover:bg-gray-800 transition duration-300">Skills</a>
+            <a href="#projects" class="block px-4 py-2 text-muted-text hover:bg-gray-800 transition duration-300">Projects</a>
+            <a href="#contact" class="block px-4 py-2 text-muted-text hover:bg-gray-800 transition duration-300">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section / About --><section id="about" class="section-padding bg-dark-background min-h-[calc(100vh-64px)] flex items-center">
+        <div class="max-w-6xl mx-auto w-full relative z-10 p-4 md:p-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column: Title and CTA --><div class="lg:text-left text-center">
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-4">
+                        <span class="block text-4xl sm:text-5xl font-extralight mb-2 text-muted-text">Hello, I'm</span>
+                        <span class="text-emerald-primary block">Reva R Thaara Mitra</span>
+                    </h1>
+                    <p class="mt-4 text-xl sm:text-2xl font-light text-muted-text max-w-lg lg:mx-0 mx-auto">
+                        Developer & Creative | Bridging technical rigor with compelling visual design.
+                    </p>
+                    <div class="mt-10">
+                        <a href="#projects" class="btn-primary">
+                            Explore My Work
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Bio Card --><div class="lg:mt-0 mt-12">
+                    <div class="bg-dark-surface p-8 md:p-10 rounded-xl shadow-2xl card-hover">
+                        <h2 class="text-2xl font-bold mb-4 text-emerald-primary border-b border-gray-700 pb-2">About Me</h2>
+                        <p class="text-lg text-light-text leading-relaxed mt-4">
+                            I am a highly motivated <strong>2nd Year B.Tech Computer Science student</strong> at the <strong>Rajadhani Institute of Engineering & Technology, Nagaroor</strong>. I am driven by an interest in both technical rigor and creative expression, maintaining a strong foundation in core programming languages, including <strong>Python, Java, HTML, and CSS</strong>.
+                        </p>
+                        <p class="text-lg text-light-text leading-relaxed mt-5">
+                            Beyond coding, I am a dedicated creative, specializing in <strong>digital arts</strong> and <strong>photography</strong>. This dual focus allows me to approach user experience and design from a unique perspective, ensuring that my projects are not only functional but also visually compelling.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section --><section id="skills" class="section-padding bg-dark-background">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-emerald-primary mb-16 tracking-wider">
+                CORE COMPETENCIES
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <!-- Technical Skills Card --><div class="group bg-dark-surface p-8 rounded-xl shadow-xl card-hover">
+                    <h3 class="text-3xl font-semibold text-emerald-primary flex items-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2 mr-4 text-emerald-primary"><polyline points="18 16 22 12 18 8"/><polyline points="6 8 2 12 6 16"/><line x1="10" x2="14" y1="4" y2="20"/></svg>
+                        Technical Development
+                    </h3>
+                    <ul class="space-y-4 text-lg text-muted-text">
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> Python
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> Java
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> HTML & CSS (Web Development)
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> Software Architecture & Logic
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Creative Skills Card --><div class="group bg-dark-surface p-8 rounded-xl shadow-xl card-hover">
+                    <h3 class="text-3xl font-semibold text-emerald-primary flex items-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paintbrush-2 mr-4 text-emerald-primary"><path d="m18 8-1.77-1.77a2.82 2.82 0 0 0-4.04 0L2 16"/><path d="m18 8-2.5-2.5"/><path d="M12 2v6"/><path d="M5.1 19.8l1.7-1.7"/><path d="M22 12a10 10 0 1 1-10-10"/></svg>
+                        Creative Design & Arts
+                    </h3>
+                    <ul class="space-y-4 text-lg text-muted-text">
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> Digital Arts
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> Photography
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> Visual Storytelling
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-emerald-primary font-bold w-4 mr-2 text-xl">&mdash;</span> UI/UX Aesthetics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section --><section id="projects" class="section-padding bg-dark-background">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center text-emerald-primary mb-16 tracking-wider">
+                FEATURED PROJECTS
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                <!-- Project Card 1: Zynec --><div class="group bg-dark-surface p-8 rounded-xl shadow-xl card-hover">
+                    <h3 class="text-2xl font-semibold text-emerald-primary mb-4">
+                        Zynec - Community Platform
+                    </h3>
+                    <p class="text-muted-text mb-5">
+                        <strong>Key Project</strong> | Demonstrates back-end development with <strong>Java</strong>, alongside front-end skills (HTML/CSS).
+                    </p>
+                    <p class="text-light-text leading-relaxed mb-6">
+                        This project is a key demonstration of applying learned skills to build a functional, user-focused digital space. It showcases ability in structuring web content, utilizing HTML/CSS for presentation, and implementing solid logic using Java for the community platform's foundation.
+                    </p>
+                    <a href="https://github.com/wtf4ev/Zynec" target="_blank" class="btn-primary !py-3 !px-6 !text-base inline-flex items-center">
+                        View Zynec Code
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ml-2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                    </a>
+                </div>
+
+                <!-- Project Card 2: GitHub / Portfolio Focus --><div class="group bg-dark-surface p-8 rounded-xl shadow-xl card-hover">
+                    <h3 class="text-2xl font-semibold text-emerald-primary mb-4">
+                        Code Repository & Experiments
+                    </h3>
+                    <p class="text-muted-text mb-5">
+                        <strong>Source Code</strong> | Explore my contributions, learning exercises, and experimental code.
+                    </p>
+                    <p class="text-light-text leading-relaxed mb-6">
+                        My GitHub profile serves as a continuous record of my learning and development journey, featuring small projects, assignments, and contributions across my technical skill set (Python, Java, HTML/CSS).
+                    </p>
+                    <a href="https://github.com/wtf4ev" target="_blank" class="btn-secondary !py-3 !px-6 !text-base inline-flex items-center">
+                        View Full GitHub Profile
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ml-2"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact --><footer id="contact" class="bg-dark-surface text-light-text py-16 section-padding !pt-16 !pb-8 border-t border-gray-900">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6 text-emerald-primary tracking-wider">
+                CONNECT WITH ME
+            </h2>
+            <p class="text-muted-text mb-10 text-lg">
+                I'm currently a 2nd Year B.Tech student and always open to connecting about technology, design, or collaboration opportunities.
+            </p>
+
+            <div class="flex justify-center space-x-10 mb-10">
+                <!-- GitHub Link --><a href="https://github.com/wtf4ev" target="_blank" class="text-muted-text hover:text-emerald-primary transform hover:scale-125 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.29-.27-2.61-.83-3.79 0 0-1.1-3.76-1.5-3.87-1.1-.06-3.86 1.44-4.52 1.63-.64-.5-1.39-.94-2.2-1.25A6 6 0 0 0 12 2a6 6 0 0 0-3.73 1.34c-.81.31-1.56.75-2.2 1.25-.66-.19-3.42-1.69-4.52-1.63-.4.11-1.5 3.87-1.5 3.87-.56 1.18-.91 2.5-.83 3.79 0 3.5 3 5.5 6 5.5-1.12.35-1.5 1.5-1.5 3.5v4"/></svg>
+                </a>
+
+                <!-- LinkedIn Link --><a href="https://www.linkedin.com/in/reva-r-thaara-mitra-8a56a7334" target="_blank" class="text-muted-text hover:text-emerald-primary transform hover:scale-125 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucude-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                
+                <!-- Email Link --><a href="mailto:revspeakin@gmail.com" class="text-muted-text hover:text-emerald-primary transform hover:scale-125 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-gray-800">
+                <p class="text-sm text-gray-600">
+                    &copy; 2024 Reva R Thaara Mitra. Built with code and creativity.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
